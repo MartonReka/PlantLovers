@@ -1,0 +1,6 @@
+C:\INFOAP\obj\Debug\netcoreapp2.1\INFOAP.csprojAssemblyReference.cache
+C:\INFOAP\obj\Debug\netcoreapp2.1\INFOAP.csproj.CoreCompileInputs.cache
+C:\INFOAP\obj\Debug\netcoreapp2.1\INFOAP.RazorAssemblyInfo.cache
+C:\INFOAP\obj\Debug\netcoreapp2.1\INFOAP.RazorAssemblyInfo.cs
+C:\INFOAP\obj\Debug\netcoreapp2.1\INFOAP.AssemblyInfoInputs.cache
+C:\INFOAP\obj\Debug\netcoreapp2.1\INFOAP.AssemblyInfo.cs
