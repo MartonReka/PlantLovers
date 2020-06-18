@@ -5,17 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PlantLovers.DataModel;
+using PlantLovers.DataProvider;
 
 namespace PlantLovers.Pages
 {
     public class IndexModel : PageModel
     {
-        public List<Flower> FlowersList = new List<Flower>();
+        private readonly FlowerDataAccess FlowerDataAccess;
+        public IEnumerable<Flower> FlowersList = new List<Flower>();
+
+        public IndexModel(FlowerDataAccess flowerData)
+        {
+            this.FlowerDataAccess = flowerData;
+        }
 
         public void OnGet()
         {
-            FlowersList.Add(new Flower("Csihany", 1, "napos-esos helyet szereti"));
-            FlowersList.Add(new Flower("Margaretta", 10, "Mezon terem"));
+            FlowersList = FlowerDataAccess.GetAll();
         }
     }
 }
