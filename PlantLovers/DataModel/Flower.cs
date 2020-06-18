@@ -7,6 +7,7 @@ namespace PlantLovers.DataModel
 {
     public class Flower 
     {
+        public int ID { get; set; }
         public string PlantName { get; set; }
         public int PlantPrice { get; set; }
         public string PlantDescription { get; set; }

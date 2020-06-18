@@ -9,6 +9,13 @@ namespace PlantLovers
 {
     public class PlantLoversDbContext : DbContext
     {
+        public PlantLoversDbContext(DbContextOptions<PlantLoversDbContext> options)
+               :base(options)
+        {
+
+        }
+
+
         public DbSet<Flower>Flowers { get; set; }
 
     }
