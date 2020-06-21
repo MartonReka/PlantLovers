@@ -9,12 +9,12 @@
 <h1>Flowers</h1>
 
 <table class="table">
-    @foreach(var Flower in Model.FlowersList)
+    @foreach (var Flower in Model.FlowersList)
     {
         <tr>
-            <td>@Flower.ID</td>        
-            <td> 
-            <a asp-page="./Detail" asp-route-flowerId="@Flower.ID">@Flower.PlantName</a>
+            <td>@Flower.ID</td>
+            <td>
+                <a asp-page="./Detail" asp-route-flowerId="@Flower.ID">@Flower.PlantName</a>
 
             </td>
             <td>@Flower.PlantPrice</td>
@@ -27,6 +27,7 @@
             </td>
         </tr>
     }
+    
 </table>
 
 <a asp-page="./NewFlower" class="btn btn-default">New Flower</a>

@@ -1,4 +1,5 @@
-﻿using PlantLovers.DataModel;
+﻿using Microsoft.EntityFrameworkCore;
+using PlantLovers.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,15 +33,44 @@ namespace PlantLovers.DataProvider
             return db.Flowers.Find(id);
         }
 
-        /*public Flower Delete (int id)
+        public Flower Delete (int id)
         {
-            var flower = flower.
-        }*/
+            var flower = GetById(id);
+            if(flower != null)
+            {
+                db.Flowers.Remove(flower);
+            }
+            return flower;
+
+        }
 
         public Flower Update(Flower updatedFlower)
         {
-
+            var entity = db.Flowers.Attach(updatedFlower);
+            entity.State = EntityState.Modified;
             return updatedFlower;
         }  
+
+        public Flower Add(Flower addedFlower)
+        {
+            db.Add(addedFlower);
+            return addedFlower;
+        }
+
+        public int Commit()
+        {
+            return db.SaveChanges();
+
+        }
+
+        public IEnumerable<Flower>GetFlowersByName(string name)
+        {
+            var query = from r in db.Flowers
+                        where r.PlantName.StartsWith(name) || string.IsNullOrEmpty(name)
+                        orderby r.PlantName
+                        select r;
+
+            return query;
+        }
     }
 }

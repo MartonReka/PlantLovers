@@ -12,6 +12,7 @@ namespace PlantLovers.Pages
     public class EditModel : PageModel
     {
         private readonly FlowerDataAccess flowerDataAccess;
+        [BindProperty]
         public Flower Flower { get; set; }
 
         public EditModel(FlowerDataAccess flowerData)
@@ -24,9 +25,11 @@ namespace PlantLovers.Pages
             Flower = flowerDataAccess.GetById(flowerId);
         }
 
-         /*public IActionResult OnPost()
+        public IActionResult OnPost()
         {
-
-        }*/
+           Flower = flowerDataAccess.Update(Flower);
+           flowerDataAccess.Commit();
+           return RedirectToPage("./Detail", new { flowerId = Flower.ID });
+        }
     }
 }

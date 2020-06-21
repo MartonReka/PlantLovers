@@ -1,10 +1,37 @@
-﻿@page
+﻿@page 
 @model PlantLovers.Pages.NewFlowerModel
 @{
     ViewData["Title"] = "NewFlower";
 }
 
 <h2>NewFlower</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Flower.ID" />
+    <div class="form-group">
+        <label asp-for="Flower.PlantName"></label>
+        <input asp-for="Flower.PlantName" class="form-control" />
+        <span class="text-danger" asp-validation-for="Flower.PlantName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Flower.PlantPrice"></label>
+        <input asp-for="Flower.PlantPrice" class="form-control" />
+        <span class="text-danger" asp-validation-for="Flower.PlantPrice"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Flower.PlantDescription"></label>
+        <input asp-for="Flower.PlantDescription" class="form-control" />
+        <span class="text-danger" asp-validation-for="Flower.PlantDescription"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+
+
 
 
 

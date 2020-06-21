@@ -22,6 +22,7 @@ namespace PlantLovers.Pages
         public void OnGet()
         {
             FlowersList = flowerDataAccess.GetAll();
+
         }
     }
 }
