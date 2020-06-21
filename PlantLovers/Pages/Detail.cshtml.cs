@@ -9,19 +9,19 @@ using PlantLovers.DataProvider;
 
 namespace PlantLovers.Pages
 {
-    public class IndexModel : PageModel
+    public class DetailModel : PageModel
     {
         private readonly FlowerDataAccess flowerDataAccess;
-        public IEnumerable<Flower> FlowersList = new List<Flower>();
+        public Flower Flower { get; set; }
 
-        public IndexModel(FlowerDataAccess flowerData)
+        public DetailModel(FlowerDataAccess flowerData)
         {
             this.flowerDataAccess = flowerData;
         }
 
-        public void OnGet()
+        public void OnGet(int flowerId)
         {
-            FlowersList = flowerDataAccess.GetAll();
+            Flower = flowerDataAccess.GetById(flowerId);
         }
     }
 }

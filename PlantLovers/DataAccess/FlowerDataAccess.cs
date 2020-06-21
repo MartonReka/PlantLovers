@@ -24,6 +24,17 @@ namespace PlantLovers.DataProvider
 
             return query;
                    
+       }
+
+
+        public Flower GetById( int id)
+        {
+            return db.Flowers.Find(id);
         }
+
+        /*public Flower Delete (int id)
+        {
+            var flower = flower.
+        }*/
     }
 }

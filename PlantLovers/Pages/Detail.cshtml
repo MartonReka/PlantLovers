@@ -1,0 +1,24 @@
+﻿@page "{flowerId:int}"
+@model PlantLovers.Pages.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    PlantName: @Model.Flower.PlantName
+</div>
+
+<div>
+    Id: @Model.Flower.ID
+</div>
+
+<div>
+    PlantPrice: @Model.Flower.PlantPrice
+</div>
+<div>
+    PlantDescription: @Model.Flower.PlantDescription
+</div>
+
+<a asp-page="./Index" class="btn btn-default">All Flowers</a>
