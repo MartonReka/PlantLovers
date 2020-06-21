@@ -36,5 +36,11 @@ namespace PlantLovers.DataProvider
         {
             var flower = flower.
         }*/
+
+        public Flower Update(Flower updatedFlower)
+        {
+
+            return updatedFlower;
+        }  
     }
 }
