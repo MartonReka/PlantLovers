@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model IndexModel
 
 
@@ -11,25 +11,29 @@
 <table class="table">
     @foreach (var Flower in Model.FlowersList)
     {
-        <tr>
-            <td>@Flower.ID</td>
-            <td>
-                <a asp-page="./Detail" asp-route-flowerId="@Flower.ID">@Flower.PlantName</a>
+    <tr>
+        <td>
+            <img src="data:image;base64,@System.Convert.ToBase64String(Flower.PictureBinary)" class="img-thumbnail" style="width: 100px;height:100px" />
+        </td>
+        <!--<td>@Flower.ID</td>-->
+        <td>
+            <a asp-page="./Detail" asp-route-flowerId="@Flower.ID">@Flower.PlantName</a>
 
-            </td>
-            <td>@Flower.PlantPrice</td>
-            <td>@Flower.PlantDescription</td>
-            <td>
-                <a asp-page="./Edit" asp-route-flowerId="@Flower.ID" class="btn btn-default">Edit</a>
-            </td>
-            <td>
-                <a asp-page="./Delete" asp-route-flowerId="@Flower.ID" class="btn btn-default">Delete</a>
-            </td>
-        </tr>
+        </td>
+        <td>@Flower.PlantPrice</td>
+        <td>@Flower.PlantDescription</td>
+        <td>
+            <a asp-page="./Edit" asp-route-flowerId="@Flower.ID" class="btn btn-default">Edit</a>
+        </td>
+        <td>
+            <a asp-page="./Delete" asp-route-flowerId="@Flower.ID" class="btn btn-default">Delete</a>
+        </td>
+
+    </tr>
     }
-    
-</table>
 
-<a asp-page="./NewFlower" class="btn btn-default">New Flower</a>
+    </table>
+
+    <a asp-page="./NewFlower" class="btn btn-default">New Flower</a>
 
 

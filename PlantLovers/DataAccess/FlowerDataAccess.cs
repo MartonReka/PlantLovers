@@ -81,6 +81,7 @@ namespace PlantLovers.DataProvider
             {
                 flower.Picture.CopyToAsync(ms);
                 flower.PictureBinary = ms.ToArray();
+                
             }
         }
 

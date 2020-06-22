@@ -6,9 +6,11 @@
 
 <h2>Editing @Model.Flower.PlantName</h2>
 
-<form method="post">
+<form enctype="multipart/form-data" method="post">
 
+    <img src="data:image;base64,@System.Convert.ToBase64String(Model.Flower.PictureBinary)" class="img-thumbnail" style="width: 400px;height:400px" />
     <input type="hidden" asp-for="Flower.ID" />
+
     <div class="form-group">
         <label asp-for="Flower.PlantName"></label>
         <input asp-for="Flower.PlantName" class="form-control" />
@@ -24,6 +26,11 @@
         <label asp-for="Flower.PlantDescription"></label>
         <input asp-for="Flower.PlantDescription" class="form-control" />
         <span class="text-danger" asp-validation-for="Flower.PlantDescription"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Flower.Picture"></label>
+        <input asp-for="Flower.Picture" type="file">
+        <span class="text-danger" asp-validation-for="Flower.Picture"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

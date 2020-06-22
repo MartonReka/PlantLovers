@@ -21,7 +21,8 @@ namespace PlantLovers.DataModel
         public string PlantDescription { get; set; }
         [NotMappedAttribute]
         public IFormFile Picture { get; set; } // for upload
-        public byte[] PictureBinary { get; set; } // for save in db and display
+
+        public byte[] PictureBinary { get; set; } = new byte[0]; // for save in db and display
 
         public Flower()
         {
