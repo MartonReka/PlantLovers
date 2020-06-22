@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PlantLovers.DataModel;
@@ -14,6 +16,8 @@ namespace PlantLovers.Pages
         private readonly FlowerDataAccess flowerDataAccess;
         [BindProperty]
         public Flower Flower { get; set; }
+
+        
 
         public NewFlowerModel(FlowerDataAccess flowerData)
         {

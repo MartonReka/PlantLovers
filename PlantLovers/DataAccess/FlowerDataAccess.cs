@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.Internal;
+using Microsoft.EntityFrameworkCore;
 using PlantLovers.DataModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,9 +24,7 @@ namespace PlantLovers.DataProvider
             var query = from f in db.Flowers
                         orderby f.PlantName
                         select f;
-
             return query;
-                   
        }
 
 
@@ -46,6 +46,7 @@ namespace PlantLovers.DataProvider
 
         public Flower Update(Flower updatedFlower)
         {
+            CopyToBinary(updatedFlower);
             var entity = db.Flowers.Attach(updatedFlower);
             entity.State = EntityState.Modified;
             return updatedFlower;
@@ -53,6 +54,7 @@ namespace PlantLovers.DataProvider
 
         public Flower Add(Flower addedFlower)
         {
+            CopyToBinary(addedFlower);
             db.Add(addedFlower);
             return addedFlower;
         }
@@ -72,5 +74,15 @@ namespace PlantLovers.DataProvider
 
             return query;
         }
+
+        private void CopyToBinary(Flower flower)
+        {
+            using (var ms = new MemoryStream())
+            {
+                flower.Picture.CopyToAsync(ms);
+                flower.PictureBinary = ms.ToArray();
+            }
+        }
+
     }
 }

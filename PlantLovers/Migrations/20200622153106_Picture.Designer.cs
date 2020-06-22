@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlantLovers;
 
 namespace PlantLovers.Migrations
 {
     [DbContext(typeof(PlantLoversDbContext))]
-    partial class PlantLoversDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200622153106_Picture")]
+    partial class Picture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,6 +27,8 @@ namespace PlantLovers.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<byte[]>("Picture");
+
                     b.Property<string>("PlantDescription")
                         .IsRequired()
                         .HasMaxLength(1000);
@@ -34,8 +38,6 @@ namespace PlantLovers.Migrations
                         .HasMaxLength(80);
 
                     b.Property<int>("PlantPrice");
-
-                    b.Property<byte[]>("pictureBinary");
 
                     b.HasKey("ID");
 

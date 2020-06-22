@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlantLovers;
 
 namespace PlantLovers.Migrations
 {
     [DbContext(typeof(PlantLoversDbContext))]
-    partial class PlantLoversDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200622161023_Picturebyte")]
+    partial class Picturebyte
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
