@@ -15,7 +15,7 @@ namespace PlantLovers.Pages
         private readonly FlowerDataAccess flowerDataAccess;
         private readonly OrderDataAccess orderDataAccess;
 
-        public IEnumerable<Order> OrderList = new List<Order>();
+        public List<OrderWithFlowerDetails> OrderListWithFlowerDetails = new List<OrderWithFlowerDetails>();
 
         public OrderListModel(FlowerDataAccess flowerData, OrderDataAccess orderData)
         {
@@ -25,8 +25,13 @@ namespace PlantLovers.Pages
         
         public void OnGet()
         {
-            OrderList = orderDataAccess.GetAll();
+            IEnumerable<Order> OrderList = orderDataAccess.GetAll();
 
+            foreach (var Order in OrderList)
+            {
+               Flower OrderFlower = flowerDataAccess.GetById(Order.FlowerID);
+               OrderListWithFlowerDetails.Add(new OrderWithFlowerDetails(Order,OrderFlower));
+            }
         }
        
     }
