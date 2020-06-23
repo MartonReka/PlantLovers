@@ -25,5 +25,12 @@ namespace PlantLovers.DataAccess
         {
             return db.SaveChanges();
         }
+
+        internal IEnumerable<Order> GetAll()
+        {
+            var query = from f in db.Orders
+                        select f;
+            return query;
+        }
     }
 }

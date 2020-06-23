@@ -1,0 +1,24 @@
+﻿@page
+
+@model PlantLovers.Pages.OrderListModel
+@{
+    ViewData["Title"] = "OrderList";
+}
+
+<h2>OrderList</h2>
+
+<table class="table">
+    @foreach (var Order in Model.OrderList)
+    {
+        <tr>
+           
+           <td>@Order.Amount</td>
+           <td>@Order.Adress</td>
+           <td>@Order.Telefon</td>
+           <td>@Order.Email</td>
+
+        </tr>
+    }
+
+</table>
+
