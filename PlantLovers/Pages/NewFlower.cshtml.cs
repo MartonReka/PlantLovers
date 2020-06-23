@@ -32,7 +32,7 @@ namespace PlantLovers.Pages
         {
             Flower = flowerDataAccess.Add(Flower);
             flowerDataAccess.Commit();
-            return RedirectToPage("./Index",new { flowerId  = Flower.ID});
+            return RedirectToPage("./Index");
         }
     }
 }

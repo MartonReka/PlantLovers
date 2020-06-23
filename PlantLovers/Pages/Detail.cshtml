@@ -24,4 +24,4 @@
 </div>
 
 <a asp-page="./Index" class="btn btn-default">All Flowers</a>
-<a asp-page="./Order" class="btn btn-default">Order</a>
+<a asp-page="./Order" asp-route-floerId="@Model.Flower.ID" class="btn btn-default">Order</a>

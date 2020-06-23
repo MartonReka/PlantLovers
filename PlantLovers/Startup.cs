@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PlantLovers.DataAccess;
 using PlantLovers.DataProvider;
 
 namespace PlantLovers
@@ -32,7 +33,10 @@ namespace PlantLovers
             });
 
             services.AddScoped<FlowerDataAccess, FlowerDataAccess>();
-            
+            services.AddScoped<OrderDataAccess, OrderDataAccess>();
+
+
+
 
             services.Configure<CookiePolicyOptions>(options =>
             {

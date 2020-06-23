@@ -1,0 +1,70 @@
+﻿@page "{flowerId:int}"
+@model PlantLovers.Pages.OrderModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>ORDER FLOWERS</h4>
+<hr />
+
+<img src="data:image;base64,@System.Convert.ToBase64String(Model.Flower.PictureBinary)" class="img-thumbnail" style="width: 400px;height:400px" />
+<div>
+    PlantName: @Model.Flower.PlantName
+</div>
+
+<div>
+    PlantPrice: @Model.Flower.PlantPrice
+</div>
+<div>
+    PlantDescription: @Model.Flower.PlantDescription
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Order.FlowerID" class="form-control" value="@Model.Flower.ID"/>
+                <span asp-validation-for="Order.FlowerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Amount" class="control-label"></label>
+                <input asp-for="Order.Amount" class="form-control" value="1"/>
+                <span asp-validation-for="Order.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Name" class="control-label"></label>
+                <input asp-for="Order.Name" class="form-control" />
+                <span asp-validation-for="Order.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Email" class="control-label"></label>
+                <input asp-for="Order.Email" class="form-control" />
+                <span asp-validation-for="Order.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Telefon" class="control-label"></label>
+                <input asp-for="Order.Telefon" class="form-control" />
+                <span asp-validation-for="Order.Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Adress" class="control-label"></label>
+                <input asp-for="Order.Adress" class="form-control" />
+                <span asp-validation-for="Order.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirm" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
