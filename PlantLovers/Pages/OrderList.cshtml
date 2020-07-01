@@ -8,8 +8,6 @@
 <h2>OrderList</h2>
 
 <table class="table">
-    @foreach (var OrderWithFlower in Model.OrderListWithFlowerDetails)
-    {
     <tr>
         <td>
             <header>
@@ -37,12 +35,15 @@
             </header>
         </td>
     </tr>
+    @foreach (var OrderWithFlower in Model.OrderListWithFlowerDetails)
+    {
+
         <tr>
-           <td> @OrderWithFlower.Flower.PlantName</td>
-           <td>@OrderWithFlower.Order.Amount</td>
-           <td>@OrderWithFlower.Order.Name</td>
-           <td>@OrderWithFlower.Order.Telefon</td>
-           <td>@OrderWithFlower.Order.Email</td>
+            <td> @OrderWithFlower.Flower.PlantName</td>
+            <td>@OrderWithFlower.Order.Amount</td>
+            <td>@OrderWithFlower.Order.Name</td>
+            <td>@OrderWithFlower.Order.Telefon</td>
+            <td>@OrderWithFlower.Order.Email</td>
 
         </tr>
     }

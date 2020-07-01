@@ -22,7 +22,6 @@ namespace PlantLovers.Pages
             this.flowerDataAccess = flowerData;
             this.orderDataAccess = orderData;
         }
-        
         public void OnGet()
         {
             IEnumerable<Order> OrderList = orderDataAccess.GetAll();
@@ -33,6 +32,5 @@ namespace PlantLovers.Pages
                OrderListWithFlowerDetails.Add(new OrderWithFlowerDetails(Order,OrderFlower));
             }
         }
-       
     }
 }
