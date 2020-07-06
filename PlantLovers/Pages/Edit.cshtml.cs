@@ -27,7 +27,13 @@ namespace PlantLovers.Pages
 
         public IActionResult OnPost()
         {
-           Flower = flowerDataAccess.Update(Flower);
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            Flower = flowerDataAccess.Update(Flower);
            flowerDataAccess.Commit();
            return RedirectToPage("./Detail", new { flowerId = Flower.ID });
         }

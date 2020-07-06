@@ -15,9 +15,9 @@ namespace PlantLovers.Pages
     {
         private readonly FlowerDataAccess flowerDataAccess;
         [BindProperty]
-        public Flower Flower { get; set; }
+        public Flower Flower { get; set; } = new Flower();
 
-        
+
 
         public NewFlowerModel(FlowerDataAccess flowerData)
         {
@@ -30,6 +30,11 @@ namespace PlantLovers.Pages
         }
         public IActionResult OnPost()
         {
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             Flower = flowerDataAccess.Add(Flower);
             flowerDataAccess.Commit();
             return RedirectToPage("./Index");
