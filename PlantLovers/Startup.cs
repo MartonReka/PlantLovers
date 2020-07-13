@@ -34,6 +34,7 @@ namespace PlantLovers
 
             services.AddScoped<FlowerDataAccess, FlowerDataAccess>();
             services.AddScoped<OrderDataAccess, OrderDataAccess>();
+            services.AddScoped<UserDataAccess, UserDataAccess>();
 
 
 

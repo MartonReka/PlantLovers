@@ -24,7 +24,7 @@ namespace PlantLovers.DataModel
 
         public byte[] PictureBinary { get; set; } = new byte[0]; // for save in db and display
 
-        public Flower()
+        public Flower() 
         {
 
         }

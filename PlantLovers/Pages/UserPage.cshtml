@@ -1,0 +1,47 @@
+﻿@page
+@model PlantLovers.Pages.UserPageModel
+@{
+   
+}
+
+<form enctype="multipart/form-data" method="post">
+
+    <input type="hidden" asp-for="User.ID" />
+    <div class="form-group">
+        <label asp-for="User.Name"></label>
+        <input asp-for="User.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="User.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Email"></label>
+        <input asp-for="User.Email" class="form-control" />
+        <span class="text-danger" asp-validation-for="User.Email"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Telefon" class="control-label"></label>
+        <input asp-for="User.Telefon" class="form-control" />
+        <span asp-validation-for="User.Telefon" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.UserName"></label>
+        <input asp-for="User.UserName" class="form-control">
+        <span class="text-danger" asp-validation-for="User.UserName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Password" ></label>
+        <input asp-for="User.Password" class="form-control">
+        <span class="text-danger" asp-validation-for="User.Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.UserType"></label>
+        <input asp-for="User.UserType" class="form-control">
+        <span class="text-danger" asp-validation-for="User.UserType"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+
