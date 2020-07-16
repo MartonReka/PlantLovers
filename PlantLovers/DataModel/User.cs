@@ -21,7 +21,7 @@ namespace PlantLovers.DataModel
         [Required, StringLength(10)]
         public string Password { get; set; }
        
-        public string UserType { get; set; }
+        public UserType UserType { get; set; }
 
         public User()
         {
