@@ -25,5 +25,16 @@ namespace PlantLovers.DataAccess
         {
             return db.SaveChanges();
         }
+
+        public User GetByUserName(string UserName)
+        {
+            var UserByUserName =(from r in db.Users
+                                 where r.UserName == UserName
+                                 orderby r.UserName
+                                 select r).Single();
+            return UserByUserName;
+        }
+
+
     }
 }
