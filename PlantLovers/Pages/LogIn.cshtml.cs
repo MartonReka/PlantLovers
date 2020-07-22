@@ -21,21 +21,33 @@ namespace PlantLovers.Pages
             this.userDataAccess = userDataAccess;
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             User SearchedUser = userDataAccess.GetByUserName(userCredentials.UserName);
+            
             if (SearchedUser == null)
             {
-               RedirectToPage("./Error");
+                TempData["Message"] = "Username or Password incorrect";
+                return RedirectToPage("./LogIn");
             }
             if (SearchedUser.UserName == userCredentials.UserName && SearchedUser.Password == userCredentials.Password)
             {
-                RedirectToPage("./Index");
+                return RedirectToPage("./Index");
             }
             else
             {
-                RedirectToPage("./Error");
+                TempData["Message"] = "Username or Password incorrect";
+                return RedirectToPage("./LogIn");
             }
+
         }
+        /*public IActionResult OnPost()
+        {
+            return RedirectToPage("./Index");
+        }*/
     }
 }

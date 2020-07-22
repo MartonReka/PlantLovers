@@ -15,7 +15,7 @@ namespace PlantLovers.Pages
         private readonly UserDataAccess userDataAccess;
         private readonly IHtmlHelper htmlHelper;
         [BindProperty]
-        public User User { get; set; } = new User();
+        public User RegisteredUser { get; set; } = new User();
         public IEnumerable<SelectListItem> UserTypes { get; set; }
 
         public UserPageModel(UserDataAccess userDataAccess, IHtmlHelper htmlHelper)
@@ -36,7 +36,13 @@ namespace PlantLovers.Pages
             {
                 return Page();
             }
-            User = userDataAccess.Add(User);
+            User VerifiedUser = userDataAccess.GetByUserName(RegisteredUser.UserName);
+            if(VerifiedUser != null)
+            {
+               TempData["Message"] = $"Username:{RegisteredUser.UserName} is taken";
+               return RedirectToPage("./UserPage");
+            }
+            RegisteredUser = userDataAccess.Add(RegisteredUser);
             userDataAccess.Commit();
             return RedirectToPage("./UserPage");
         }

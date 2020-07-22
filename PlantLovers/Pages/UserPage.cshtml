@@ -1,48 +1,51 @@
 ﻿@page
 @model PlantLovers.Pages.UserPageModel
 @{
-   
+
 }
 
+<div class="alert">
+    @TempData["Message"]
+</div>
 <form enctype="multipart/form-data" method="post">
 
-    <input type="hidden" asp-for="User.ID" />
+    <input type="hidden" asp-for="RegisteredUser.ID" />
     <div class="form-group">
-        <label asp-for="User.Name"></label>
-        <input asp-for="User.Name" class="form-control" />
-        <span class="text-danger" asp-validation-for="User.Name"></span>
+        <label asp-for="RegisteredUser.Name"></label>
+        <input asp-for="RegisteredUser.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="RegisteredUser.Name"></span>
     </div>
     <div class="form-group">
-        <label asp-for="User.Email"></label>
-        <input asp-for="User.Email" class="form-control" />
-        <span class="text-danger" asp-validation-for="User.Email"></span>
+        <label asp-for="RegisteredUser.Email"></label>
+        <input asp-for="RegisteredUser.Email" class="form-control" />
+        <span class="text-danger" asp-validation-for="RegisteredUser.Email"></span>
 
     </div>
     <div class="form-group">
-        <label asp-for="User.Telefon" class="control-label"></label>
-        <input asp-for="User.Telefon" class="form-control" />
-        <span asp-validation-for="User.Telefon" class="text-danger"></span>
+        <label asp-for="RegisteredUser.Telefon" class="control-label"></label>
+        <input asp-for="RegisteredUser.Telefon" class="form-control" />
+        <span asp-validation-for="RegisteredUser.Telefon" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="User.UserName"></label>
-        <input asp-for="User.UserName" class="form-control">
-        <span class="text-danger" asp-validation-for="User.UserName"></span>
+        <label asp-for="RegisteredUser.UserName"></label>
+        <input asp-for="RegisteredUser.UserName" class="form-control">
+        <span class="text-danger" asp-validation-for="RegisteredUser.UserName"></span>
     </div>
     <div class="form-group">
-        <label asp-for="User.Password" ></label>
-        <input asp-for="User.Password" class="form-control">
-        <span class="text-danger" asp-validation-for="User.Password"></span>
+        <label asp-for="RegisteredUser.Password"></label>
+        <input asp-for="RegisteredUser.Password" class="form-control">
+        <span class="text-danger" asp-validation-for="RegisteredUser.Password"></span>
     </div>
     <div class="form-group">
-        <label asp-for="User.UserType"></label>
-        <select class="form-control" asp-for="User.UserType" asp-items="Model.UserTypes"></select>
-        <span class="text-danger" asp-validation-for="User.UserType"></span>
+        <label asp-for="RegisteredUser.UserType"></label>
+        <select class="form-control" asp-for="RegisteredUser.UserType" asp-items="Model.UserTypes"></select>
+        <span class="text-danger" asp-validation-for="RegisteredUser.UserType"></span>
     </div>
 
-<div>
-    <a asp-page="LogIn">Save</a>
-</div>
-    
+    <div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
 </form>
 
 

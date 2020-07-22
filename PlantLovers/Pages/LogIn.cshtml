@@ -3,8 +3,11 @@
 @{
 }
 
+
+    <h4>@TempData["Message"]</h4>
+
 <form enctype="multipart/form-data" method="post">
-    
+
     <div class="form-group">
         <label asp-for="userCredentials.UserName"></label>
         <input asp-for="userCredentials.UserName" class="form-control">
@@ -16,4 +19,6 @@
         <span class="text-danger" asp-validation-for="userCredentials.Password"></span>
     </div>
     <button type="submit" class="btn btn-primary">Log-In</button>
+
+    
 </form>

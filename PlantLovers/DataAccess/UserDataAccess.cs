@@ -15,10 +15,10 @@ namespace PlantLovers.DataAccess
             this.db = db;
         }
 
-        public User Add(User addedOrder)
+        public User Add(User addedUser)
         {
-            db.Add(addedOrder);
-            return addedOrder;
+            db.Add(addedUser);
+            return addedUser;
         }
 
         public int Commit()
@@ -28,10 +28,10 @@ namespace PlantLovers.DataAccess
 
         public User GetByUserName(string UserName)
         {
-            var UserByUserName =(from r in db.Users
-                                 where r.UserName == UserName
-                                 orderby r.UserName
-                                 select r).Single();
+            var UserByUserName = (from r in db.Users
+                                  where r.UserName == UserName
+                                  orderby r.UserName
+                                  select r).SingleOrDefault();
             return UserByUserName;
         }
 
