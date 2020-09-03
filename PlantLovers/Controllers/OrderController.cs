@@ -21,7 +21,7 @@ namespace PlantLovers.Controllers
         }
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<Order> GetAll([FromQuery]string email)
         {
             return OrderDataAccess.GetAll();
         }
