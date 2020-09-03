@@ -33,7 +33,7 @@ namespace PlantLovers.Pages
                 return Page();
             }
 
-            Flower = flowerDataAccess.Update(Flower);
+           Flower = flowerDataAccess.Update(Flower);
            flowerDataAccess.Commit();
            return RedirectToPage("./Detail", new { flowerId = Flower.ID });
         }

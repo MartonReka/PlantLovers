@@ -34,6 +34,5 @@ namespace PlantLovers.DataModel
             this.PlantPrice = PlantPrice;
             this.PlantDescription = PlantDescription;
         }
-        
     }
 }

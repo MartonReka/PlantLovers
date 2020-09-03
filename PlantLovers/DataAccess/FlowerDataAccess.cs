@@ -18,8 +18,7 @@ namespace PlantLovers.DataProvider
         {
             this.db = db;
         }
-
-       public IEnumerable<Flower> GetAll()
+        public IEnumerable<Flower> GetAll()
         {
             var query = from f in db.Flowers
                         orderby f.PlantName
@@ -77,13 +76,15 @@ namespace PlantLovers.DataProvider
 
         private void CopyToBinary(Flower flower)
         {
-            using (var ms = new MemoryStream())
+            if (flower.Picture != null)
             {
-                flower.Picture.CopyToAsync(ms);
-                flower.PictureBinary = ms.ToArray();
-                
+                using (var ms = new MemoryStream())
+                {
+                    flower.Picture.CopyToAsync(ms);
+                    flower.PictureBinary = ms.ToArray();
+
+                }
             }
         }
-
     }
 }

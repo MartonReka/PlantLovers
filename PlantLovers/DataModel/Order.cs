@@ -21,5 +21,20 @@ namespace PlantLovers.DataModel
         public string Telefon { get; set; }
         [Required, StringLength(1000)]
         public string Adress { get; set; }
+
+        public Order()
+        {
+        }
+
+        public Order(int iD, int flowerID, int amount, string name, string email, string telefon, string adress)
+        {
+            ID = iD;
+            FlowerID = flowerID;
+            Amount = amount;
+            Name = name;
+            Email = email;
+            Telefon = telefon;
+            Adress = adress;
+        }
     }
 }
