@@ -17,13 +17,23 @@ namespace PlantLovers.Controllers
 
         public OrderController(OrderDataAccess orderDataAccess)
         {
-            OrderDataAccess = OrderDataAccess;
+            OrderDataAccess = orderDataAccess;
         }
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<Order> GetAll([FromQuery(Name = "email")]string email)
         {
-            return OrderDataAccess.GetAll();
+            if (email == null)
+            {
+                return OrderDataAccess.GetAll();
+            }
+            else
+            {
+                var query = from f in OrderDataAccess.GetAll()
+                            where f.Email.Equals(email)
+                            select f;
+                return query;
+            }
         }
 
         // GET api/<controller>/5
