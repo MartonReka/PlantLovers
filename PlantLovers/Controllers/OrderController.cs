@@ -17,7 +17,7 @@ namespace PlantLovers.Controllers
 
         public OrderController(OrderDataAccess orderDataAccess)
         {
-            OrderDataAccess = OrderDataAccess;
+            OrderDataAccess = orderDataAccess;
         }
         // GET: api/<controller>
         [HttpGet]
@@ -30,11 +30,10 @@ namespace PlantLovers.Controllers
             else
             {
                 var query = from f in OrderDataAccess.GetAll()
-                            where f.Email.Contains(email)
+                            where f.Email.Equals(email)
                             select f;
                 return query;
             }
-            //return OrderDataAccess.GetAll();
         }
 
         // GET api/<controller>/5
