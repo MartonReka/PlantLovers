@@ -21,19 +21,44 @@ namespace PlantLovers.Controllers
         }
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<Order> GetAll([FromQuery(Name = "email")]string email)
+        public IEnumerable<Order> GetAll([FromQuery(Name = "email")]string email,
+                                         [FromQuery(Name = "flowerid")]string flowerid)
         {
-            if (email == null)
+            if (email == null && flowerid == null )
             {
                 return OrderDataAccess.GetAll();
             }
-            else
+            
+
+            if (flowerid != null && email == null)
+            {
+                var query = from f in OrderDataAccess.GetAll()
+                            where f.FlowerID.ToString().Equals(flowerid)
+                            select f;
+                return query;
+
+            }
+
+            if (flowerid == null && email != null)
             {
                 var query = from f in OrderDataAccess.GetAll()
                             where f.Email.Equals(email)
                             select f;
                 return query;
+
             }
+            if (flowerid != null && email != null)
+            {
+                var query = from f in OrderDataAccess.GetAll()
+                            where f.FlowerID.ToString().Equals(flowerid)
+                            where f.Email.Equals(email)
+                            select f;
+                return query;
+
+            }
+
+            return null;
+
         }
 
         // GET api/<controller>/5
