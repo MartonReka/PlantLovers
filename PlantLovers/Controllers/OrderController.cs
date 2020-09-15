@@ -19,6 +19,7 @@ namespace PlantLovers.Controllers
         {
             OrderDataAccess = orderDataAccess;
         }
+
         // GET: api/<controller>
         [HttpGet]
         public IEnumerable<Order> GetAll([FromQuery(Name = "email")]string email,
