@@ -23,7 +23,7 @@ namespace PlantLovers.DataModel
         public string Adress { get; set; }
 
         public Order()
-        {
+            {
         }
 
         public Order(int iD, int flowerID, int amount, string name, string email, string telefon, string adress)

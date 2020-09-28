@@ -10,6 +10,11 @@ namespace PlantLovers.DataAccess
     {
         private readonly PlantLoversDbContext db;
 
+        public OrderDataAccess() 
+        {
+        // empty constructor for mocking
+        }
+
         public OrderDataAccess(PlantLoversDbContext db)
         {
             this.db = db;
@@ -26,7 +31,7 @@ namespace PlantLovers.DataAccess
             return db.SaveChanges();
         }
 
-        internal IEnumerable<Order> GetAll()
+        public virtual IEnumerable<Order> GetAll()
         {
             var query = from f in db.Orders
                         select f;
