@@ -6,7 +6,7 @@ using PlantLovers.DataModel;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlanLoversUnitTest
+namespace PlantLoversUnitTest
 {
     [TestClass]
     public class OrderControllerUnitTest

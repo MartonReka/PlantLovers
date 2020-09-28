@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantLovers", "PlantLovers\PlantLovers.csproj", "{704957B0-35BC-4B89-92C6-F4A8C9DDBD87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantLoversUnitTest", "PlanLoversUnitTest\PlantLoversUnitTest.csproj", "{BE90706E-1F16-4DF9-A99D-7923F60FEB2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantLoversUnitTest", "PlantLoversUnitTest\PlantLoversUnitTest.csproj", "{BE90706E-1F16-4DF9-A99D-7923F60FEB2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
